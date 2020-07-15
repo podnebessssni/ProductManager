@@ -9,6 +9,10 @@ public class Smartphone extends Product {
         this.producer = producer;
     }
 
+    public boolean matches(String search) {
+        return super.matches(search) || getProducer().equalsIgnoreCase(search);
+    }
+
     public String getProducer() {
         return producer;
     }
