@@ -1,5 +1,15 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@EqualsAndHashCode(callSuper = true)
+
 public class Smartphone extends Product {
 
      private String producer;
@@ -13,11 +23,4 @@ public class Smartphone extends Product {
         return super.matches(search) || getProducer().equalsIgnoreCase(search);
     }
 
-    public String getProducer() {
-        return producer;
-    }
-
-    public void setProducer(String producer) {
-        this.producer = producer;
-    }
 }
