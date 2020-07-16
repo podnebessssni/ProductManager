@@ -14,18 +14,21 @@ class SmartphoneTest {
         assertTrue(actual);
 
     }
+
       @Test
     void shouldFindByProducer(){
         boolean actual = product.matches("Samsung");
         assertTrue(actual);
 
     }
+
      @Test
     void shouldNotFindByProducer(){
         boolean actual = product.matches("Nokia");
         assertFalse(actual);
 
     }
+
      @Test
     void shouldNotFindByName(){
         boolean actual = product.matches("S20");

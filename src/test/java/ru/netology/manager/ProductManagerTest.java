@@ -8,7 +8,6 @@ import ru.netology.domain.Product;
 import ru.netology.repository.ProductRepository;
 import static org.junit.jupiter.api.Assertions.*;
 
-
 class ProductManagerTest {
 
     private ProductRepository repository = new ProductRepository();
@@ -18,7 +17,7 @@ class ProductManagerTest {
     private Product third = new Book(3,"Idiot", 75, "Dostoyevski");
     private Product fourth = new Smartphone(4,"S10", 550, "Samsung");
     private Product fifth = new Smartphone(5,"3310", 100, "Nokia");
-
+    private Product sixth = new Smartphone(6,"S20", 600, "Samsung");
 
     @BeforeEach
     void setUp(){
@@ -27,6 +26,7 @@ class ProductManagerTest {
     manager.add(third);
     manager.add(fourth);
     manager.add(fifth);
+    manager.add(sixth);
     }
 
     @Test
@@ -37,6 +37,7 @@ class ProductManagerTest {
     assertArrayEquals(expected, actual);
 
     }
+
     @Test
     void shouldSearchByName() {
 
@@ -56,10 +57,11 @@ class ProductManagerTest {
     @Test
     void shouldSearchByProducer() {
 
-        Product[] expected = {new Smartphone(4,"S10", 550, "Samsung")};
-        Product[] actual = manager.searchBy("Samsung");
+        Product[] expected = {new Smartphone(5,"3310", 100, "Nokia")};
+        Product[] actual = manager.searchBy("Nokia");
         assertArrayEquals(expected, actual);
     }
+
     @Test
     void shouldSearchByNonExistName() {
 
@@ -68,5 +70,12 @@ class ProductManagerTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    void shouldSearchMoreThanOne() {
+
+        Product[] expected = {new Smartphone(4,"S10", 550, "Samsung"),new Smartphone(6,"S20", 600, "Samsung")};
+        Product[] actual = manager.searchBy("Samsung") ;
+        assertArrayEquals(expected, actual);
+    }
 
 }
