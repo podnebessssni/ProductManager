@@ -18,6 +18,7 @@ class ProductManagerTest {
     private Product fourth = new Smartphone(4,"S10", 550, "Samsung");
     private Product fifth = new Smartphone(5,"3310", 100, "Nokia");
     private Product sixth = new Smartphone(6,"S20", 600, "Samsung");
+    private Product seventh = new Book(7,"QA Information", 35, "Samsung");
 
     @BeforeEach
     void setUp(){
@@ -27,6 +28,7 @@ class ProductManagerTest {
     manager.add(fourth);
     manager.add(fifth);
     manager.add(sixth);
+    manager.add(seventh);
     }
 
     @Test
@@ -73,7 +75,9 @@ class ProductManagerTest {
     @Test
     void shouldSearchMoreThanOne() {
 
-        Product[] expected = {new Smartphone(4,"S10", 550, "Samsung"),new Smartphone(6,"S20", 600, "Samsung")};
+        Product[] expected = {new Smartphone(4,"S10", 550, "Samsung"),
+                              new Smartphone(6,"S20", 600, "Samsung"),
+                              new Book(7,"QA Information", 35, "Samsung")};
         Product[] actual = manager.searchBy("Samsung") ;
         assertArrayEquals(expected, actual);
     }
