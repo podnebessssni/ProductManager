@@ -59,8 +59,8 @@ class ProductManagerTest {
     @Test
     void shouldSearchByProducer() {
 
-        Product[] expected = {new Smartphone(4,"S10", 550, "Samsung")};
-        Product[] actual = manager.searchBy("Samsung");
+        Product[] expected = {new Smartphone(5,"3310", 100, "Nokia")};
+        Product[] actual = manager.searchBy("Nokia");
         assertArrayEquals(expected, actual);
     }
     @Test
